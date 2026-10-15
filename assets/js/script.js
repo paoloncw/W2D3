@@ -116,6 +116,12 @@ const starWarsCharacters = [
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const nomi = [];
+for (let wey = 0; wey < starWarsCharacters.length; wey++) {
+	nomi.push(starWarsCharacters[wey].name)
+}
+console.log(nomi)
+
 /* ESERCIZIO 2 — Solo i femminili
    Array vuoto "personaggiFemminili". Con un for + if (gender === "female"),
    crea un nuovo oggetto { name, hair_color, eye_color } e fai push.
@@ -124,20 +130,56 @@ const starWarsCharacters = [
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-/* ESERCIZIO 3 — Oggetto raggruppamento
+const personaggiFemminili = [];
+for (let wey = 0; wey < starWarsCharacters.length; wey++) {
+	if (starWarsCharacters[wey].gender === "female") {
+		personaggiFemminili.push({
+			name: starWarsCharacters[wey].name,
+			hair_color: starWarsCharacters[wey].hair_color,
+			eye_color: starWarsCharacters[wey].eye_color,
+		})
+	}
+}
+console.log(personaggiFemminili)
+
+/* ESERCIZIO 3 e 4— Oggetto raggruppamento
    Crea perColoreOcchi con chiavi: blue, yellow, brown, red, blue-gray (con trattino).
-   Ognuna con un array vuoto.
-*/
+   Ognuna con un array vuoto.*/
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const perColoreOcchi = {
+	blue: [],
+	yellow: [],
+	red: [],
+	brown: [],
+	"blue-gray": [],
+}
 
-/* ESERCIZIO 4 — Raggruppa per colore degli occhi
+/* ESERCIZIO 3 e 4 — Raggruppa per colore degli occhi
    For su starWarsCharacters + switch (character.eye_color).
    In ogni case fai push del personaggio nell'array giusto. Ricorda break.
-   Stampa perColoreOcchi.
-*/
+   Stampa perColoreOcchi.*/
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+for (let wey = 0; wey < starWarsCharacters.length; wey++) {
+	switch (starWarsCharacters[wey].eye_color) {
+		case "blue":
+			perColoreOcchi.blue.push(starWarsCharacters[wey])
+			break;
+		case "yellow":
+			perColoreOcchi.yellow.push(starWarsCharacters[wey])
+			break;
+		case "red":
+			perColoreOcchi.red.push(starWarsCharacters[wey])
+			break;
+		case "brown":
+			perColoreOcchi.brown.push(starWarsCharacters[wey])
+			break;
+		case "blue-gray":
+			perColoreOcchi["blue-gray"].push(starWarsCharacters[wey])
+			break;
+	}
+}
+
+console.log(perColoreOcchi)
 
 /* ESERCIZIO 5 — Massa totale dell'equipaggio (while)
    i = 0, massaTotale = 0.
@@ -146,6 +188,11 @@ const starWarsCharacters = [
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+let dei = 0
+let massaTotale = 0
+
+while
 
 /* ESERCIZIO 6 — Classifica il carico
    Su massaTotale, switch (true) o if/else if:
