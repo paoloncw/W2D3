@@ -230,7 +230,13 @@ switch (true) {
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+for (let wey = 0; wey < starWarsCharacters.length; wey++) {
+	if (starWarsCharacters[wey].gender === "n/a") {
+		starWarsCharacters[wey].gender = "robot"
+	}
+}
 
+console.table(starWarsCharacters)
 
 /* ESERCIZIO 8 — Più alto e più basso
    For su starWarsCharacters. Trova il personaggio con altezza maggiore e quello con altezza minore.
@@ -240,6 +246,20 @@ switch (true) {
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+let piuAlto = starWarsCharacters[0]
+let piuBasso = starWarsCharacters[0]
+
+for (let wey = 0; wey < starWarsCharacters.length; wey++) {
+	if (Number(starWarsCharacters[wey].height) > Number(piuAlto.height)) {
+		piuAlto = starWarsCharacters[wey]
+	}
+	if (Number(starWarsCharacters[wey].height) < Number(piuBasso.height)) {
+		piuBasso = starWarsCharacters[wey]
+	}
+}
+console.log(`Più alto: ${piuAlto.name} (${piuAlto.height} cm)`)
+console.log(`Più basso: ${piuBasso.name} (${piuBasso.height} cm)`)
+
 /* ESERCIZIO 9 — Rimuovi i femminili dai nomi (cicli annidati)
    Sull'array "nomi" dell'esercizio 1: for esterno su nomi, for interno su personaggiFemminili.
    Quando combaciano per nome, rimuovi quel nome da nomi con splice.
@@ -247,6 +267,17 @@ switch (true) {
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+console.log("prima:", nomi.length)
+for (let wey = 0; wey < nomi.length; wey++) {
+	for (let oloap = 0; oloap < personaggiFemminili.length; oloap++) {
+		if (nomi[wey] === personaggiFemminili[oloap].name) {
+			nomi.splice(wey, 1)
+		}
+	}
+}
+console.log("dopo:", nomi.length)
+console.log(nomi)
 
 /* ESERCIZIO 10 — Personaggio casuale
    indice = Math.floor(Math.random() * starWarsCharacters.length)
@@ -256,6 +287,23 @@ switch (true) {
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const indice = Math.floor(Math.random() * starWarsCharacters.length)
+const personaggio = starWarsCharacters[indice]
+console.log(personaggio)
+
+if (personaggio.gender === "female") {
+	console.log(`Lei è alta ${personaggio.height} cm`)
+} else if (personaggio.gender === "male") {
+	console.log(`Lui è alto ${personaggio.height} cm`)
+} else {
+	console.log(`Esso è alto ${personaggio.height} cm`)
+}
+if (personaggio.hair_color !== "n/a" && personaggio.hair_color !== "none") {
+	console.log(`Capelli: ${personaggio.hair_color}`)
+} else {
+	console.log("senza capelli")
+}
 
 /* --EXTRA-- ESERCIZIO 11 — Conta per colore di occhi
    For...in sulle chiavi di perColoreOcchi.
